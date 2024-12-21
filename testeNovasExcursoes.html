@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVAS EXCURSÕES</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+<style>
+
+
+body { color: aliceblue; font-family: Arial, Helvetica, sans-serif; }
+
+#pequeno{
+    cursor: pointer;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0.4); /*direita esquerda cima e embaixo*/; border-radius: 15px;
+    background-color: white; color: orangered; text-align: center; }
+
+.botaoOpcao::placeholder{ color: white; text-align: center; }
+.local::placeholder{color: orangered; font-weight: bold;}
+
+input[name="botaoOpcao"], input[name="descricao"] {
+    margin-top: 1%;
+    padding-top: 0.5%;
+    border-radius: 7px;
+    text-align: center;
+    cursor: pointer;
+}
+input[name="botaoOpcao"]{ background-color: #e05a47; color: white; width: 90%; }
+input[name="descricao"] { height: 30px; background-color: whitesmoke; margin-bottom: 1%; width: 90%;}
+
+
+#botao_novo { 
+border-radius: 15px;
+background-color: white; text-align: center; color: #e05a47;
+width: 500px;
+padding-top: 7px;
+padding-bottom: 7px;
+}
+
+a{text-decoration: none;}
+
+button[name="contatos"], button[name="salvar"] {
+    text-align: center; 
+    border-radius: 10px;
+    color: orangered; border-color: #e05a47; background-color: white; font-size: 15px; font-weight: bolder;
+    height: auto; padding-top: 10px; padding-bottom: 10px;
+    cursor: pointer;
+}
+
+
+    </style>
+
+</head>
+<body>
+
+    <img src="wallpape.png" style="position: fixed; z-index: -20; height: 100%; width: 100%;">
+<div class="container-fluid">
+
+<header>
+<div class="row mb-2 pb-2"> <!-- cabecalho -->
+    <a href="testeHome.html" type="button" class="text-orange w-auto m-2 pt-1 pb-0" id="pequeno"> ◀ Voltar ao menu </a>
+    <div class="text-white" style="text-align: center; font-size: 60px; margin-top: -5px;"> Novas excursões </div>
+</div>
+</header>
+
+<div class="container"> <!-- para dar espacinho na lateral/ fundo -->
+
+<div class="row"> <!-- primeira linha: local e data -->
+    <div class="col mb-4 d-flex justify-content-center">
+        <input class="local" placeholder="Local" id="botao_novo" style="border: none; box-shadow: 3px 3px 10px rgba(0, 0, 0.4)">
+    </div>
+
+    <div class="col d-flex mb-4 justify-content-center">
+        <div style="width: 500px; background-color: white; border-radius: 15px; text-align: center; color: orangered; font-weight: bold; box-shadow: 3px 3px 10px rgba(0, 0, 0.4)" class="pt-2">
+            Data do evento
+            <input type="date" style="background-color: whitesmoke; text-align: center;">
+
+        </div>
+    </div>
+
+</div>
+
+<div class="row " id="row">
+    <div class="col d-flex justify-content-center mb-4" > <!-- separa no meio -->
+        <div id="botao_novo" style="height: auto; padding: 0; box-shadow: 3px 3px 10px rgba(0, 0, 0.4)"> <!-- div branca de trás -->
+            <div class="bg-danger m-0 text-white" style="font-weight: bold; height: 35px; border-radius: 15px; padding-top: 5px;"> Vai ter café da manhã </div>
+        <div style="text-align: center; margin-top: 2%;"> 
+            <input type="radio" id="sim" name="opcao" style="cursor: pointer;"><label for="sim">Sim</label>
+            <input type="radio" id="nao" name="opcao" style="cursor: pointer;"><label for="nao">Não</label>                
+        </div>
+        <input type="txt" id="local_cafe" class="botaoOpcao" name="botaoOpcao" placeholder="Onde? Será cobrado a parte?" class="ultimo">
+    </div>
+    </div>
+    <div class="col d-flex justify-content-center mb-4">
+        <div id="botao_novo" style="height: auto; padding: 0; box-shadow: 3px 3px 10px rgba(0, 0, 0.4)"> <!-- div branca de trás -->
+            <div class="bg-danger m-0" style="height: 35px; border-radius: 15px; padding-top: 5px; color: white; font-weight: bold;"> Transporte </div>
+            <input type="number" placeholder="Para quantas pessoas tu vai vender?" style="background-color: white; border-radius: 10px; margin-top: 10px; width: 70%;"> pessoas
+            <input type="txt" placeholder="Qual tipo de transporte você tem mente?" style="background-color: white; border-radius: 10px; margin-top: 10px; width: 85%;"> 
+        </div>
+</div>
+</div>
+
+<div class="row mb-3"> 
+    <div class="col d-flex justify-content-center mb-4">
+        <div id="botao_novo" style="height: 190px; padding: 0; box-shadow: 3px 3px 10px rgba(0, 0, 0.4)"> <!-- div branca de trás -->
+            <div class="bg-danger m-0 text-white" style="font-weight: bold; height: 35px; border-radius: 15px; padding-top: 5px; "> Pontos Turísticos </div>
+            <input type="txt" id="local_cafe" class="botaoOpcao" name="botaoOpcao" placeholder="Onde? Será cobrado a parte?" class="ultimo">
+            <input type="txt" id="local_cafe" class="botaoOpcao" name="botaoOpcao" placeholder="Onde? Será cobrado a parte?" class="ultimo">
+            <input type="txt" id="local_cafe" class="botaoOpcao" name="botaoOpcao" placeholder="Onde? Será cobrado a parte?" class="ultimo">
+            <input type="txt" id="local_cafe" class="botaoOpcao" name="botaoOpcao" placeholder="Onde? Será cobrado a parte?" class="ultimo">
+        </div>
+    </div>
+
+        <div class="col d-flex justify-content-center">
+            <div id="botao_novo" style="height: 190px; padding: 0; box-shadow: 3px 3px 10px rgba(0, 0, 0.4)"> <!-- div branca de trás -->
+                <div class="bg-danger m-0 text-white" style="font-weight: bold; height: 35px; border-radius: 15px; padding-top: 5px; "> Hospedagem </div>
+                <input type="txt" class="botaoOpcao" id="hospedagem_1" name="botaoOpcao" placeholder="Opção 1">
+                <input type="txt" class="descricao"  id="hospedagem_1d" name="descricao" placeholder="Descrição">
+                <input type="txt" class="botaoOpcao" id="hospedagem_2" name="botaoOpcao" placeholder="Opção 2">
+                <input type="txt" class="descricao" id="hospedagem_2d" name="descricao" placeholder="Descrição">
+            </div>
+    </div>
+</div>
+    <div class="row justify-content-center mb-5">
+        <button class="col-4" name="contatos" id="contatos"> Verifique seus contatos </button>
+        <a class="col-3" href="testefibalizacao.html"><button name="salvar" id="salvar" onclick="salvarDados()"> Salvar dados</button></a> 
+    </div>
+
+
+
+
+</div>
+
+</div>
+
+</body>
+</html>

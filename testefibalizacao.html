@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Lateral</title>
+  <!-- Adicionando Bootstrap -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Estilos customizados */
+    body {
+      font-family: Arial, sans-serif;
+      overflow-x: hidden; /* Impede a rolagem horizontal */
+      margin: 0;
+      background-image: url(Exercícios.png);
+    }
+    .sidebar {
+      height: 100vh;
+      width: 250px;
+      position: fixed;
+      top: 0;
+      left: -250px;
+      background-color: #333;
+      transition: all 0.3s ease;
+      z-index: 1;
+    }
+    .sidebar.active {
+      left: 0;
+    }
+    .sidebar ul {
+      padding: 0;
+      list-style: none;
+    }
+    .sidebar ul li {
+      padding: 15px 20px;
+      border-bottom: 1px solid #555;
+    }
+    .sidebar ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: #fff;
+      cursor: pointer;
+    }
+    .content {
+      margin-left: 0;
+      transition: all 0.3s ease;
+    }
+    .content.active {
+      margin-left: 250px;
+    }
+
+.cadaParte:hover{    
+    background-color: #404239;
+}
+
+.b_information {
+width: 220px;
+border-radius: 5px;
+text-align: center;
+}
+
+#outros_cafe{
+    justify-content: center;
+    margin-top: 1%;
+}
+
+.outros_cafe{
+    border-radius: 5px;
+    width: 110px;
+    padding-top: 1%;
+padding-bottom: 1%;
+}
+
+
+#menu, #menu_ {
+    position: absolute;
+    width: auto;
+    left: 1%;
+    font-weight: bold;
+    font-size: 20px;
+}
+#menu{ margin-top: 4%; margin-left: 4%; }
+#menu_ {margin-top: 0%;}
+a {text-decoration: none;}
+
+#titulolaranja{
+    background-color: orangered;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    z-index: 5;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 19%;
+    width: 100%;
+}
+.cadaParte{
+    align-items: center;
+    text-align: center;
+}
+
+p{ font-weight: bold; 
+    margin-top: 4%; 
+    margin-bottom: 0;
+    color: white;
+  }
+
+
+#selecionar{
+    width: 87.5%;
+    background-color: rgb(224, 90, 71);
+}
+#outros_bototes_add{
+    font-size: 20px;
+}
+/*#obs{ height: 70px; }*/
+.b_information_outros{
+    width: 450px;
+    height: 45px;
+    border-radius: 10px;
+    background-color: white;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    text-align: center;
+}
+
+::placeholder{ text-align: center;}
+#botao_planilha{
+  width: 450px;
+    height: 45px;
+    border-radius: 10px;
+    background-color: orangered;
+    margin-top: 1%;
+    margin-bottom: 3%;
+    color: aliceblue;  font-size: 16px; font-weight: bold;
+    cursor: pointer;
+}
+
+.oculta{ display: none;}
+
+header {
+    position: absolute;
+    width: 100%;
+/* Centraliza os elementos horizontalmente */
+    z-index: 10;
+    height: 8%;
+    background-color:#272822;
+}
+h4 { color: white; font-size: 12px;}
+#horario_login{
+    margin-left: 6.5%;
+    width: 87%;
+    margin-top: 0.5%;
+    color:rgb(224, 90, 71);
+    padding: 0;
+    font-size: 15px;
+}
+
+
+
+  </style>
+</head>
+<body>
+
+    <header class="oculta" id="header_"> 
+      <div class="row">
+        <p class="col mt-2" id="menu_"> ☰ </p>
+        <a href="testeHome.html"><p class="col mt-3" id="voltar_menu" style="margin-left: 100px;"> ◀ Voltar a home </p></a>
+        <a href="testeNovasExcursoes.html"><p class="col mt-3" style="margin-left: 100px;" id="nova_excursao"> Nova excursão </p></a>
+        <a href="home.html"><p class="col mt-3" style="margin-left: 100px;" id="contatos"> Contatos</p></a> 
+        <a href="home.html"><p class="col mt-3" style="margin-left: 100px;" id="solicitacoes"> Solicitações</p></a>
+      </div>
+    </header>
+
+<div class="sidebar" id="sidebar" style="color: white;"> <!-- sidebar -->
+  <div class="close-btn" onclick="closeSidebar()">
+    &times;
+  </div>
+
+  <div id="menu" style="font-size: large; margin-top: 15px; margin-left: 15px; font-weight: bold; color: white;"> ☰ </div>
+
+  <div id="titulolaranja"> Excursão para: </div>
+  <div class="cadaParte">  <!-- Data -->
+      <p> Será na data:</p>
+      <input type="date" id="date" class="b_information" >         
+  </div>
+  <div class="cadaParte">  <!-- Café da manhã -->
+    <p> Terá café da manhã? </p>
+    <input type="txt" id="cafemanha" class="b_information">  
+    <div id="outros_cafe" style="display: flex;">
+        <input type="number" placeholder="Gasto (por pessoa)" class="outros_cafe" >
+        <input type="number" placeholder="Cobrar (por pessoa)" class="outros_cafe" >
+    </div>
+</div>
+
+<div class="cadaParte"> <!-- Atrações -->
+    <p> Add o custo de cada atração </p>
+    <input type="txt" id="atracao1" class="b_information">  
+    <input type="txt" id="atracao2" class="b_information">  
+    <input type="txt" id="atracao3" class="b_information">  
+</div>
+
+<div class="cadaParte">  <!-- Transporte -->
+    <p> Add o valor do transporte </p>
+    <input type="number" id="transporte_valor" class="b_information">  
+</div>
+
+<div class="cadaParte">  <!-- Hospedagem -->
+    <p> Selecione a hospedagem </p>
+    <select id="selecionar" class="b_information"></select>
+    <input type="txt" id="qntd_quartos_ap" class="b_information" placeholder="Quantos quartos/AP?">  
+    <input type="txt" id="tipo_quarto" class="b_information" placeholder="Tipo de quarto/AP">
+    <input type="number" id="tipo_quarto" class="b_information" placeholder="Valor total da hospedagem">
+    <div class="b_information" style="background-color: white;" id="horario_login">
+      Check--in: 
+      <input type="time" id="tipo_quarto" placeholder="Horário de login">
+  </div>
+  <div class="b_information" style="background-color: white;" id="horario_login">
+    Check-out
+    <input type="time" id="tipo_quarto" placeholder="Horário de login">
+</div>    
+</div>
+</div>
+
+
+<div class="container-fluid"> <!-- conteúdo principal -->
+  <button onclick="openSidebar()" class="bg-dark btn btn-block text-white" style="text-align: left; width: 230px;  box-shadow: 1px 2px 3px rgb(255, 255, 255)">Abrir informações</button>
+
+  <div class="row content mb-5" id="content">
+    <div class="col" style="text-align: center;">
+      <p> Data limite de pagamento </p>
+        <input type="date" class="b_information_outros" placeholder="Valor total da hospedagem" style="text-align: center;">
+        <h4>*faltam *** pessoas para completar sua meta</h4>
+
+        <p> Custo (total) </p>
+        <input type="number" id="tipo_quarto" class="b_information_outros" placeholder="Essa excursão custará para você">
+        <p> Qual será sua margem de lucro (%)? </p>
+        <input type="number" id="tipo_quarto" class="b_information_outros" placeholder="Quanto de lucro você quer ter?">
+        <button id="botao_planilha"> Verificar valores </button>
+
+
+<!--        <p> Deve receber (total) </p>
+        <input type="number" id="recebe_total" id="tipo_quarto" class="b_information_outros">
+        <p> Deve receber (por pessoa) </p>
+-->
+        
+   <button id="botao_planilha"> Status de pagamento de cada cliente </button>
+
+    </div>
+
+    <div class="col" style="text-align: center;">
+      <p> Para quantas pessoas você já vendeu? </p>
+      <input type="number" id="tipo_quarto" class="b_information_outros" placeholder="Adicione aqui">  
+      <h4>*faltam *** pessoas para completar sua meta</h4>
+ 
+      <p> Quantas pessoas pagaram? </p>
+                <input type="number" id="tipo_quarto" class="b_information_outros" placeholder="Adicione aqui">
+                <h4>*faltam *** pessoas para completar sua meta</h4>
+
+                
+                <p> Considerações finais </p>
+                <input type="txt" class="b_information_outros" placeholder="Add aqui lembretes, inovações (ex: alimentação no transporte)">
+
+                <p> Horário de ida (embarcar) </p>
+                <input type="time" class="b_information_outros" placeholder="Add aqui lembretes, inovações (ex: alimentação no transporte)">
+
+                <p> Horário de volta (embarcar) </p>
+                <input type="time" class="b_information_outros" placeholder="Add aqui lembretes, inovações (ex: alimentação no transporte)">
+
+
+                <button id="botao_planilha"> Organizar clientes: hospedagem </button>
+
+  </div>
+</div>
+</div>
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+var valor_total = 50; 
+document.getElementById('recebe_total').value = valor_total;
+  
+  function openSidebar() {
+    document.getElementById("sidebar").classList.add('active');
+    document.getElementById("content").classList.add('active');
+  }
+
+  function closeSidebar() {
+    document.getElementById("sidebar").classList.remove('active');
+    document.getElementById("content").classList.remove('active');
+  }
+
+
+  const meuBotao = document.getElementById('menu');
+const minhaDiv = document.getElementById('header_');
+
+meuBotao.addEventListener('mouseover', function() {
+    minhaDiv.classList.remove('oculta');
+});
+
+meuBotao.addEventListener('mouseout', function() {
+    minhaDiv.classList.add('oculta');
+});
+
+minhaDiv.addEventListener('mouseover', function() {
+    minhaDiv.classList.remove('oculta');
+});
+
+minhaDiv.addEventListener('mouseout', function() {
+    minhaDiv.classList.add('oculta');
+});
+</script>
+</body>
+</html>
